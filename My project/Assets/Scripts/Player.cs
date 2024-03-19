@@ -54,19 +54,21 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(isJumping)
+            if(!isJumping) 
             {
                 rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-                doubleJump = true;
                 anim.SetBool("jump", true);
+                doubleJump = true;
             }
             else
             {
-                rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-                doubleJump = false;
-                
+                if (doubleJump)
+                {
+                    rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+                    doubleJump = false;
+                }
             }
         }
     }
@@ -76,7 +78,8 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             isJumping = false;
-            anim.SetBool("jump", true);
+            doubleJump = false; //Resetar o pulo duplo quando o jogador toca o chão
+            anim.SetBool("jump", false);
         }
     }
     
