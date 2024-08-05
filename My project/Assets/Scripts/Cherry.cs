@@ -9,6 +9,7 @@ public class Cherry : MonoBehaviour
     // Start is called before the first frame update
     public SpriteRenderer sr;
     public CircleCollider2D cc;
+    public int score;
     
     public GameObject coleta;
     void Start()
@@ -30,6 +31,8 @@ public class Cherry : MonoBehaviour
             sr.enabled = false;
             cc.enabled = false;
             coleta.SetActive(true);
+
+            GameManager.instance.totalScore += score;
             
             Destroy(gameObject, 0.3f);
             
