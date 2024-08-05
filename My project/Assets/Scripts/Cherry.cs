@@ -1,31 +1,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AssetImporters;
 using UnityEngine;
 
 public class Cherry : MonoBehaviour
 {
-    public GameObject coleta;
-
-    private SpriteRenderer sr;
-
-    private CircleCollider2D circle;
     // Start is called before the first frame update
+    public SpriteRenderer sr;
+    public CircleCollider2D cc;
+    
+    public GameObject coleta;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        circle = GetComponent<CircleCollider2D>();
+        cc = GetComponent<CircleCollider2D>();
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
-            circle.enabled = false;
             sr.enabled = false;
+            cc.enabled = false;
             coleta.SetActive(true);
             
-            Destroy(gameObject, 0.5f);
-        }
+            Destroy(gameObject, 0.3f);
             
+
+        }
     }
 }
