@@ -17,13 +17,6 @@ public class Cherry : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         cc = GetComponent<CircleCollider2D>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
@@ -33,6 +26,7 @@ public class Cherry : MonoBehaviour
             coleta.SetActive(true);
 
             GameManager.instance.totalScore += score;
+            GameManager.instance.UpdateScoreText();
             
             Destroy(gameObject, 0.3f);
             
