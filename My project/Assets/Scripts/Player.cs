@@ -81,6 +81,12 @@ public class NewBehaviourScript : MonoBehaviour
             doubleJump = false; //Resetar o pulo duplo quando o jogador toca o chão
             anim.SetBool("jump", false);
         }
+
+        if (collision.gameObject.tag == "Spikes")
+        {
+            GameManager.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
     }
     
     void OnCollisionExit2D(Collision2D collision)
