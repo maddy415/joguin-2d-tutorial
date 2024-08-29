@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
         aSource.Play();
         
     }
-
     public void ReloadScene(string lvlName)
     {
         SceneManager.LoadScene(lvlName);
