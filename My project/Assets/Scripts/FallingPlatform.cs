@@ -26,17 +26,20 @@ public class FallingPlatform : MonoBehaviour
         {
             Invoke("Falling", fallingTime);
         }
-        
-        if (collision.gameObject.tag == "Boundaries")
-        {
-            sr.enabled = false;
-            bc.enabled = false;
-        }
-        
     }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "DestroyPlat")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Falling()
     {
         tj.enabled = false;
+        bc.isTrigger = true;
     }
 
 }

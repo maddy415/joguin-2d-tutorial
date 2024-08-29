@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boundaries
   - Spikes
+  - DestroyPlat
   layers:
   - Default
   - TransparentFX
