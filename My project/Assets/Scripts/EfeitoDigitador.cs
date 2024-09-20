@@ -56,9 +56,11 @@ public class EfeitoDigitador : MonoBehaviour
             componenteTexto.text = msg;
             _audioSource.Play();
             yield return new WaitForSeconds(IntervaloLetras);
-
-            imprimindo = false;
-            StopAllCoroutines();
         }
+
+        imprimindo = false;
     }
+
 }
+
+
